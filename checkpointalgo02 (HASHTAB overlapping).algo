@@ -1,0 +1,36 @@
+ALGORITHM HASHTAB_distinct
+VAR
+    set1,set2, set3 : HASH_TABLE<INTIGER,INTIGER>
+    i, sum : INTIGER:=0;
+BEGIN
+
+// remplissage de set1
+    
+    set1.insert(0,12);
+    set1.insert(1,13);
+    set1.insert(2,6);
+    set1.insert(3,10);
+    Write(set1);
+
+// remplissage de set2
+    
+    set2.insert(0,13);
+    set2.insert(1,10);
+    set2.insert(2,16);
+    set2.insert(3,15);   
+    Write(set2);
+
+// comparaison set1 & ajout sum
+
+    FOR i FROM 0 TO 3 STEP step  DO
+        IF (set2.lookup(set1[i])=true) THEN
+            sum:= sum+(set1[i]*2)
+            set3[i].insert(i, set1[i])
+        END_IF
+    END_FOR
+
+// affiche les resultats
+    
+    write ('output',sum)
+    write ('overlapping elements', set3)
+END

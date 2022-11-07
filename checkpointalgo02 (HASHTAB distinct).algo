@@ -1,0 +1,46 @@
+ALGORITHM HASHTAB_distinct
+VAR
+    set1,set2, set3 : HASH_TABLE<INTIGER,INTIGER>
+    i, sum : INTIGER:=0;
+BEGIN
+
+// remplissage de set1
+    
+    set1.insert(0,3);
+    set1.insert(1,1);
+    set1.insert(2,7);
+    set1.insert(3,9);
+    Write(set1);
+
+// remplissage de set2
+    
+    set2.insert(0,2);
+    set2.insert(1,4);
+    set2.insert(2,1);
+    set2.insert(3,9);   
+    set2.insert(4,3);   
+    Write(set2);
+
+// comparaison set1 & ajout sum
+
+    FOR i FROM 0 TO 3 STEP step  DO
+        IF (set2.lookup(set1[i])=false) THEN
+            sum:= sum+set1[i]
+            set3[i].insert(i, set1[i])
+        END_IF
+    END_FOR
+
+// comparaison set2 & ajout sum
+
+    FOR i FROM 0 TO 4 STEP step  DO
+        IF (set1.lookup(set2[i])=false) THEN
+            sum:= sum+set2[i]
+            set3[i].insert(i, set2[i])
+        END_IF
+    END_FOR
+
+// affiche les resultats
+
+    write ('output',sum)
+    write ('distinct elements', set3)
+END

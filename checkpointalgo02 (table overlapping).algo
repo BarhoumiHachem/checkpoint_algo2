@@ -1,0 +1,34 @@
+ALGORITHM tableau_overlapping
+VAR
+    set1, set2, set3 ARRAY_OF INTIGER;
+    sum : INTIGER:=0;
+    n, m : INTIGER;
+BEGIN
+
+// saisie length of set1 & remplir set1
+    write('write the length of first table')
+    read (m)
+    FOR i FROM 0 TO m-1 STEP step  DO
+        write ('donner la valeur', set1[i])
+    END_FOR
+    
+// saisie length of set2 & remplir set2
+    write('write the length of second table')
+    read (n)
+    FOR i FROM 0 TO n-1 STEP step  DO
+        write ('donner la valeur', set2[i])
+    END_FOR
+
+// comparaison tableau 1 & ajout sum
+    FOR i FROM 0 TO m-1 STEP step  DO
+        IF ((set2.includes(set1[i]))) THEN
+            sum:= sum+(set1[i]*2)
+            set3[i]:=set1[i]
+        END_IF
+    END_FOR
+
+// affiche les resultats
+
+    write ('output',sum)
+    write ('overlapping elements', set3)
+END
